@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name=viewport content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+<title>Evies Colouring Pad!</title>
+
+<script src="js/jquery-1.7.min.js"></script>
+<script src="js/jquery.mobile-1.3.1.min.js"></script>
+<script src="js/sketcher.js"></script>
+
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+
+<script>
+var selectedPicture = 0;
+var pictures = new Array();
+pictures[31] = "images/Adjay.png"; pictures[25] = "images/Buzz1.png"; 
+pictures[18] = "images/Cat1.png"; pictures[3] = "images/Cluck1.png";
+pictures[22] = "images/Cluck2.png"; pictures[4] = "images/Hicoo.png"; 
+pictures[5] = "images/Honk1.png"; pictures[6] = "images/Hoot.png";
+pictures[7] = "images/Jess1.png"; pictures[8] = "images/Jess2.png";
+pictures[28] = "images/Jessie1.png"; pictures[10] = "images/Lotso.png";
+pictures[29] = "images/Meeeew1.png"; pictures[23] = "images/Meep1.png";
+pictures[13] = "images/Oink.png"; pictures[14] = "images/Pat1.png";
+pictures[15] = "images/PC1.png"; pictures[16] = "images/Pig1.png";
+pictures[17] = "images/Rex1.png"; pictures[2] = "images/Ruff1.png";
+pictures[18] = "images/Slinky1.png"; pictures[19] = "images/Teachers.png";
+pictures[20] = "images/Timmy1.png"; pictures[21] = "images/Timmy3.png";
+pictures[4] = "images/Timmy4.png"; pictures[12] = "images/Jess5.png";
+pictures[24] = "images/Timmy6.png"; pictures[1] = "images/Timmy7.png";
+pictures[26] = "images/Toystory50.png"; pictures[27] = "images/Woodie1.png";
+pictures[9] = "images/Yabba1.png"; pictures[11] = "images/Yabba2.png";
+pictures[30] = "images/Yabba3.png"; pictures[0] = "images/YipYap.png";
+
+var sketcher = null;
+$(document).ready(function(e) {	
+	sketcher = new Sketcher("sketch");
+});
+
+$(document).ready(function(e) {	
+	setPicture(0);
+});
+
+function setPicture(pictureNumber) {
+	sketcher.clear();
+	var canvas = document.getElementById('outline');	
+	var context = canvas.getContext('2d');
+	canvas.width = canvas.width;
+	var imageObj = new Image();
+	imageObj.onload = function() {
+		//context.clearRect( 0, 0, canvas.width, canvas.height );
+	  	context.drawImage(this, 0, 0, canvas.width, canvas.height);
+	};
+	imageObj.src = pictures[pictureNumber];
+}
+
+function nextPicture() {
+	selectedPicture++;
+	if(selectedPicture > (pictures.length-1))
+		selectedPicture = 0;
+	setPicture(selectedPicture);
+}
+
+function previousPicture() {
+	selectedPicture--;
+	if(selectedPicture < 0)
+		selectedPicture = (pictures.length-1);
+	setPicture(selectedPicture);
+}
+</script>
+
+</head>
+
+<body>
+<div data-role="page" id="home" data-theme="c"> 
+	<!-- Colour Picker Panel -->
+	<div data-role="panel" id="coloursPanel" 
+		data-display="overlay" data-position="left">		                
+            <form>
+				<fieldset data-role="controlgroup" data-mini="true">
+					<input type="radio" name="colorChoice6" 
+						id="colorChoice61" value="on" checked="checked"
+						onclick="sketcher.setBrushColor('#ffffff');">
+					<label for="colorChoice61">White</label>
+					<input type="radio" name="colorChoice6" 
+						id="colorChoice62" value="off"
+						onclick="sketcher.setBrushColor('#000000');">
+					<label for="colorChoice62">Black</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice63" value="other"						
+						onclick="sketcher.setBrushColor('red');">
+					<label for="colorChoice63">Red</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice64" value="other"
+						onclick="sketcher.setBrushColor('green');">
+					<label for="colorChoice64">Green</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice65" value="other"
+						onclick="sketcher.setBrushColor('yellow');">
+					<label for="colorChoice65">Yellow</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice66" value="other"
+						onclick="sketcher.setBrushColor('blue');">
+					<label for="colorChoice66">Blue</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice67" value="other"
+						onclick="sketcher.setBrushColor('aqua');">
+					<label for="colorChoice67">Aqua</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice68" value="other"
+						onclick="sketcher.setBrushColor('DarkCyan');">
+					<label for="colorChoice68">Dark Cyan</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice69" value="other"
+						onclick="sketcher.setBrushColor('orange');">
+					<label for="colorChoice69">Orange</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice610" value="other"
+						onclick="sketcher.setBrushColor('coral');">
+					<label for="colorChoice610">Coral</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice611" value="other"
+						onclick="sketcher.setBrushColor('pink');">
+					<label for="colorChoice611">Pink</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice612" value="other"
+						onclick="sketcher.setBrushColor('Chartreuse');">
+					<label for="colorChoice612">Chartreuse</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice613" value="other"
+						onclick="sketcher.setBrushColor('green');">
+					<label for="colorChoice613">Green</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice614" value="other"
+						onclick="sketcher.setBrushColor('greenyellow');">
+					<label for="colorChoice614">Green Yellow</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice615" value="other"
+						onclick="sketcher.setBrushColor('LightSlateGray');">
+					<label for="colorChoice615">Light Slate Gray</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice616" value="other"
+						onclick="sketcher.setBrushColor('LightSteelBlue');">
+					<label for="colorChoice616">Light Steel Blue</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice617" value="other"
+						onclick="sketcher.setBrushColor('purple');">
+					<label for="colorChoice617">Purple</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice618" value="other"
+						onclick="sketcher.setBrushColor('MediumOrchid');">
+					<label for="colorChoice618">MediumOrchid</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice619" value="other"
+						onclick="sketcher.setBrushColor('brown');">
+					<label for="colorChoice619">Brown</label>
+					<input type="radio" name="colorChoice6"
+						id="colorChoice620" value="other"
+						onclick="sketcher.setBrushColor('BurlyWood');">
+					<label for="colorChoice620">Burly Wood</label>
+				</fieldset>
+        	</form>		
+	</div>
+	<!-- Tool Picker Panel -->
+	<div data-role="panel" id="toolsPanel" data-display="overlay" data-position="right">
+		<input type="button" class="btn error" value="Clear" 
+			onclick="sketcher.clear();" /> 
+		<input type="button" class="btn error" value="Eraser" 
+			onclick="sketcher.setBrushColor(colorWhite);sketcher.setBrushWidth(20);" />
+		<input type="range" name="slider-1" id="slider-1" value="10" min="1" max="20" 
+			onChange="sketcher.setBrushWidth(this.value);"/>
+		<input type="button" class="btn error" value="Next" 
+			onclick="nextPicture();" /> 
+		<input type="button" class="btn error" value="Previous" 
+			onclick="previousPicture();" />
+	</div>
+	<div data-role="header" role="banner">
+		<a href="#coloursPanel" data-icon="home" 
+			class="ui-btn-left ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-left ui-btn-up-a" 
+			data-corners="true" data-shadow="true" data-iconshadow="true" 
+			data-wrapperels="span" data-theme="a">
+			<span class="ui-btn-inner"><span class="ui-btn-text">Colours</span>
+			<span class="ui-icon ui-icon-home ui-icon-shadow">&nbsp;</span></span></a>
+		<h1 class="ui-title" role="heading" aria-level="1">Evies!</h1>
+		<a href="#toolsPanel" data-icon="bars" 
+			class="ui-btn-right ui-btn ui-btn-up-a ui-shadow ui-btn-corner-all ui-btn-icon-left" 
+			data-corners="true" data-shadow="true" data-iconshadow="true" 
+			data-wrapperels="span" data-theme="a"><span class="ui-btn-inner">
+			<span class="ui-btn-text">Tools</span>
+			<span class="ui-icon ui-icon-bars ui-icon-shadow">&nbsp;</span></span></a>
+	</div>
+	<div data-role="content">		
+		<div>
+			<canvas id="outline" width="350" height="500" 
+				style="position:absolute; left:0; top:45px; z-index:1; pointer-events:none;"></canvas>
+			<canvas id="sketch" width="349" height="499" 
+				style="position:absolute; left:0; top:45px; z-index:0;"></canvas>
+		</div>
+	</div>
+</div>
+</body>
+</html>

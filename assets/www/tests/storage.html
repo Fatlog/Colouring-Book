@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Capture Photo</title>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            document.addEventListener("deviceready",loaded,false);
+            function loaded() {
+            	var value;
+            	alert(value);
+            	
+                //Store the data                
+				window.localStorage.setItem("key", "value");
+				//retrieve the data
+				value = window.localStorage.getItem("key");
+				alert(value);
+				// value is now equal to "value"
+				// remove the value
+				window.localStorage.removeItem("key");
+            }
+            </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

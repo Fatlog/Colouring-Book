@@ -1,0 +1,100 @@
+.ui-radio:nth-child(1) span.ui-btn-inner{
+    background-color:white;
+    color:black;
+}
+.ui-radio:nth-child(2) span.ui-btn-inner{
+    background-color:black;
+    color:white;
+}
+.ui-radio:nth-child(3) span.ui-btn-inner{
+    background-color:red;
+    color:white;
+}
+.ui-radio:nth-child(4) span.ui-btn-inner{
+    background-color:green;
+    color:white;
+}
+.ui-radio:nth-child(5) span.ui-btn-inner{
+    background-color:yellow;
+    color:white;
+}
+.ui-radio:nth-child(6) span.ui-btn-inner{
+    background-color:blue;
+    color:white;
+}
+.ui-radio:nth-child(7) span.ui-btn-inner{
+    background-color:aqua;
+    color:white;
+}
+.ui-radio:nth-child(8) span.ui-btn-inner{
+    background-color:cornflowerblue;
+    color:white;
+}
+.ui-radio:nth-child(9) span.ui-btn-inner{
+    background-color:orange;
+    color:white;
+}
+.ui-radio:nth-child(10) span.ui-btn-inner{
+    background-color:coral;
+    color:white;
+}
+.ui-radio:nth-child(11) span.ui-btn-inner{
+    background-color:pink;
+    color:white;
+}
+.ui-radio:nth-child(12) span.ui-btn-inner{
+    background-color:Chartreuse;
+    color:white;
+}
+.ui-radio:nth-child(13) span.ui-btn-inner{
+    background-color:green;
+    color:white;
+}
+.ui-radio:nth-child(14) span.ui-btn-inner{
+    background-color:greenyellow;
+    color:white;
+}
+.ui-radio:nth-child(15) span.ui-btn-inner{
+    background-color:LightSlateGray ;
+    color:white;
+}
+.ui-radio:nth-child(16) span.ui-btn-inner{
+    background-color:LightSteelBlue;
+    color:white;
+}
+.ui-radio:nth-child(17) span.ui-btn-inner{
+    background-color:purple;
+    color:white;
+}
+.ui-radio:nth-child(18) span.ui-btn-inner{
+    background-color:MediumOrchid;
+    color:white;
+}
+.ui-radio:nth-child(19) span.ui-btn-inner{
+    background-color:brown;
+    color:white;
+}
+.ui-radio:nth-child(20) span.ui-btn-inner{
+    background-color:BurlyWood;
+    color:white;
+}
+
+var colorPurple = "#cb3594";
+var colorGreen = "#659b41";
+var colorYellow = "#ffcf33";
+var colorBrown = "#986928";
+var colorBlack = "#000000";
+var colorWhite = "#ffffff";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  padding-top: 0px;
+  text-align:center;
+}
+
+#sketch {
+	border: 0px;
+	background-color: #ffffff;
+	border-radius: 10px;
+}

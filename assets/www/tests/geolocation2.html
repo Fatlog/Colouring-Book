@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Geolocation</title>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            document.addEventListener("deviceready", loaded, false);
+            var watchID = null;
+            function loaded() {
+                watchID = navigator.geolocation.watchPosition(success, error, { frequency: 1000 });
+            }
+            function success(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: ' + position.coords.latitude     + '<br />' +
+                'Longitude: '           + position.coords.longitude             + '<br />' +
+                'Altitude: '            + position.coords.altitude              + '<br />' +
+                'Accuracy: '            + position.coords.accuracy              + '<br />' +
+                'Altitude Accuracy: '   + position.coords.altitudeAccuracy      + '<br />' +
+                'Heading: '             + position.coords.heading               + '<br />' +
+                'Speed: '               + position.coords.speed                 + '<br />' +
+                'Timestamp: '           + new Date(position.timestamp)          + '<br />' +
+                '<hr>' + element.innerHTML;
+            }
+            function error(error) {
+                alert(error.message);
+            }
+            </script>
+    </head>
+    <body>
+        <p id="geolocation">Finding geolocation...</p>
+    </body>
+</html>

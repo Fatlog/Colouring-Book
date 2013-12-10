@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Capture Photo</title>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            var pictureSource,
+                destinationType
+            document.addEventListener("deviceready",loaded,false);
+            function loaded() {
+                pictureSource=navigator.camera.PictureSourceType;
+                destinationType=navigator.camera.DestinationType;
+            }
+            function getPhoto(imageData) {
+                var smallImage = document.getElementById('smallImage');
+                smallImage.style.display = 'block';
+                smallImage.src = "data:image/jpeg;base64," + imageData;
+                //smallImage.src = imageData;
+            }
+            function capturePhoto() {
+            	navigator.camera.getPicture(getPhoto, onFail, 
+					{ quality: 80,destinationType: Camera.DestinationType.DATA_URL,
+					sourceType: Camera.PictureSourceType});
+            	// get pic from library
+            	//navigator.camera.getPicture(getPhoto, onFail, 
+				//	{ quality: 80,destinationType: Camera.DestinationType.DATA_URL,
+				//	sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
+                //navigator.camera.getPicture(getPhoto, onFail, { quality: 50 });
+                //navigator.camera.getPicture(getPhoto, onFail, { allowEdit: true });
+            }
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            </script>
+    </head>
+    <body>
+        <button onclick="capturePhoto();">Capture Photo</button> <br>
+        <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    </body>
+</html>
